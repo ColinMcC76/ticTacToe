@@ -1,9 +1,27 @@
-.col-4 {
-    min-height: 20vh;
-    min-width: 20vw;
-    text-align: center;
-    padding-top: 36px;
-    font-size: 3em;
+@media screen and (min-width: 600px) {
+    .col-4 {
+        min-height: 20vh;
+        min-width: 20vw;
+        text-align: center;
+        padding-top: 36px;
+        font-size: 3em;
+    }
+    .correction {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .col-4 {
+        min-height: 10vh;
+        min-width: 10vw;
+        text-align: center;
+        padding-top: 6px;
+        font-size: 2em;
+    }
+    .correction {
+        font-size: 1em;
+    }
 }
 
 .game {
@@ -19,7 +37,6 @@
     min-width: auto;
     min-height: auto;
     padding: 0px;
-    font-size: 30px;
 }
 
 .size {

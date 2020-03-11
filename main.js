@@ -27,18 +27,19 @@ function setup() {
     player.appendChild(currentPlayer);
     document.body.appendChild(player);
     var scoreDiv = document.createElement("div");
+    scoreDiv.className = "text-center"
     var scoreRow = document.createElement("row");
     scoreRow.className = "row justify-content-center";
     var score1Div = document.createElement("div");
     var score2Div = document.createElement("div");
-    score1Div.className = "col-4 correction"
-    score2Div.className = "col-4 correction"
+    score1Div.className = "col-sm-6 col-md-4 correction"
+    score2Div.className = "col-sm-6 col-md-4 correction"
     var score1 = document.createElement("p");
     var score2 = document.createElement("p");
     score1.innerText = "Player 1: " + player1Score
     score2.innerText = "Player 2: " + player2Score
     var btn = document.createElement("div")
-    btn.className = "col-4 correction"
+    btn.className = "col-sm-6 col-md-4 correction"
     var reset = document.createElement("button")
     reset.className = "btn-dark"
     reset.innerText = "New Game"

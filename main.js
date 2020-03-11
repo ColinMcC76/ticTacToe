@@ -106,5 +106,5 @@ function toggleTurn(e) {
     }
     playerChoice.onclick = " "
 }
-
+// runs the entire page, onload.
 setup()

@@ -21,7 +21,7 @@ function setup() {
     title.className = "col-12 display-3 text-center";
     document.body.appendChild(title);
     var player = document.createElement("div");
-    player.className = "text-center";
+    player.className = "text-center size";
     var currentPlayer = document.createElement("p");
     currentPlayer.innerText = "Player O's turn"
     player.appendChild(currentPlayer);
@@ -31,14 +31,14 @@ function setup() {
     scoreRow.className = "row justify-content-center";
     var score1Div = document.createElement("div");
     var score2Div = document.createElement("div");
-    score1Div.className = "Col-4 m-2"
-    score2Div.className = "Col-4 m-2"
+    score1Div.className = "col-4 correction"
+    score2Div.className = "col-4 correction"
     var score1 = document.createElement("p");
     var score2 = document.createElement("p");
     score1.innerText = "Player 1: " + player1Score
     score2.innerText = "Player 2: " + player2Score
     var btn = document.createElement("div")
-    btn.className = "Col-4 m-2"
+    btn.className = "col-4 correction"
     var reset = document.createElement("button")
     reset.className = "btn-dark"
     reset.innerText = "New Game"
@@ -77,7 +77,7 @@ function setup() {
     var btn = document.createElement("div")
     btn.className = "text-center"
     var reset = document.createElement("button")
-    reset.className = "btn-dark"
+    reset.className = "btn-dark size"
     reset.innerText = "Reset"
     btn.onclick = startOver
     btn.appendChild(reset)

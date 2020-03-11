@@ -14,3 +14,14 @@
 .border {
     border: 3px solid black!important
 }
+
+.correction {
+    min-width: auto;
+    min-height: auto;
+    padding: 0px;
+    font-size: 30px;
+}
+
+.size {
+    font-size: 30px;
+}

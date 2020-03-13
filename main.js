@@ -10,12 +10,14 @@ let winners = [
     [3, 5, 7],
     [1, 5, 9]
 ]
+let gameStatus = ['', '', '', '', '', '', '', '', ''];
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let game = true
 player1Score = 0
 player2Score = 0
 
 function setup() {
+    let myApp = document.getElementById("myApp")
     var title = document.createElement("h1");
     title.innerText = "Tic Tac Toe";
     title.className = "col-12 display-3 text-center";
@@ -104,24 +106,8 @@ function newGame() {
     setup()
 }
 
-function toggleTurn(e) {
-    var playerChoice = document.getElementById(e.target.id);
-    if (count % 2 == 0) {
-        // console.log('o')
-        currentPlayer.innerText = "Player O's turn"
-        playerChoice.innerHTML = "X";
-    } else {
-        // console.log('x')
-        // let aiMove = document.getElementById(Math.floor(Math.random() * 9));
-        // aiMove.innerText = "X"
-        // count++
-
-        currentPlayer.innerText = "Player X's turn";
-        playerChoice.innerHTML = "O";;
-    }
-    count++
-    // who won, is it a win or a tie?
-    // wins come from vertical, horizontal, or diagonal matches
+// check to see if there is a winner
+function checkWinner() {
     for (let i = 0; i < winners.length; i++) {
         let check1 = document.getElementById(winners[i][0])
         let check2 = document.getElementById(winners[i][1])
@@ -161,6 +147,28 @@ function toggleTurn(e) {
             currentPlayer.innerText = "congrats it's a tie"
         }
     }
+}
+
+
+function toggleTurn(e) {
+    var playerChoice = document.getElementById(e.target.id);
+    if (count % 2 == 0) {
+        // console.log('o')
+        currentPlayer.innerText = "Player O's turn"
+        playerChoice.innerHTML = "X";
+        // gameStatus[e.target.id - 1] = "x"
+        // console.log('x')
+        // document.getElementById(Math.floor(Math.random() * 9));
+        // aiMove.innerText = "X"
+    } else {
+        currentPlayer.innerText = "Player X's turn";
+        playerChoice.innerHTML = "O";
+        // gameStatus[e.target.id - 1] = "o"
+    }
+    count++
+    // who won, is it a win or a tie?
+    // wins come from vertical, horizontal, or diagonal matches
+    checkWinner()
     playerChoice.onclick = " "
 }
 // runs the entire page, onload.

@@ -1,21 +1,26 @@
 // creates the page
-let count = 1
+let count = 0
+    // count used to count the player clicks
 let winners = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9],
-    [3, 5, 7],
-    [1, 5, 9]
-]
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [3, 5, 7],
+        [1, 5, 9]
+    ]
+    // all possible winning combos.
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let game = true
+    // the game status, letting you know whether the game is still going or not. 
 player1Score = 0
 player2Score = 0
+    //player scores.
 
 function setup() {
+    let myApp = document.getElementById("myApp")
     var title = document.createElement("h1");
     title.innerText = "Tic Tac Toe";
     title.className = "col-12 display-3 text-center";
@@ -87,15 +92,14 @@ function setup() {
 
 // function for the reset button 
 function startOver() {
-    // console.log("hey")
     document.body.innerHTML = " "
     count = 1
     game = true
     setup()
 }
 
+// function to make a new game, resetting the player scores as well as the board.
 function newGame() {
-    // console.log("hey")
     document.body.innerHTML = " "
     count = 1
     game = true
@@ -104,24 +108,8 @@ function newGame() {
     setup()
 }
 
-function toggleTurn(e) {
-    var playerChoice = document.getElementById(e.target.id);
-    if (count % 2 == 0) {
-        // console.log('o')
-        currentPlayer.innerText = "Player O's turn"
-        playerChoice.innerHTML = "X";
-    } else {
-        // console.log('x')
-        // let aiMove = document.getElementById(Math.floor(Math.random() * 9));
-        // aiMove.innerText = "X"
-        // count++
-
-        currentPlayer.innerText = "Player X's turn";
-        playerChoice.innerHTML = "O";;
-    }
-    count++
-    // who won, is it a win or a tie?
-    // wins come from vertical, horizontal, or diagonal matches
+// check to see if there is a winner
+function checkWinner() {
     for (let i = 0; i < winners.length; i++) {
         let check1 = document.getElementById(winners[i][0])
         let check2 = document.getElementById(winners[i][1])
@@ -157,10 +145,29 @@ function toggleTurn(e) {
                 j++
             }
             break;
-        } else if (count == 10 && game) {
+        } else if (count == 9 && game) {
             currentPlayer.innerText = "congrats it's a tie"
         }
     }
+}
+// players turn changes based on who has previously clicked.
+
+function toggleTurn(e) {
+    var playerChoice = document.getElementById(e.target.id);
+    if (count % 2 == 0) {
+
+        currentPlayer.innerText = "Player O's turn"
+        playerChoice.innerHTML = "X";
+
+    } else {
+        currentPlayer.innerText = "Player X's turn";
+        playerChoice.innerHTML = "O";
+
+    }
+    count++
+    // who won, is it a win or a tie?
+    // wins come from vertical, horizontal, or diagonal matches
+    checkWinner()
     playerChoice.onclick = " "
 }
 // runs the entire page, onload.

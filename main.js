@@ -1,20 +1,23 @@
 // creates the page
-let count = 1
+let count = 0
+    // count used to count the player clicks
 let winners = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9],
-    [3, 5, 7],
-    [1, 5, 9]
-]
-let gameStatus = ['', '', '', '', '', '', '', '', ''];
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [3, 5, 7],
+        [1, 5, 9]
+    ]
+    // all possible winning combos.
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let game = true
+    // the game status, letting you know whether the game is still going or not. 
 player1Score = 0
 player2Score = 0
+    //player scores.
 
 function setup() {
     let myApp = document.getElementById("myApp")
@@ -89,15 +92,14 @@ function setup() {
 
 // function for the reset button 
 function startOver() {
-    // console.log("hey")
     document.body.innerHTML = " "
     count = 1
     game = true
     setup()
 }
 
+// function to make a new game, resetting the player scores as well as the board.
 function newGame() {
-    // console.log("hey")
     document.body.innerHTML = " "
     count = 1
     game = true
@@ -143,27 +145,24 @@ function checkWinner() {
                 j++
             }
             break;
-        } else if (count == 10 && game) {
+        } else if (count == 9 && game) {
             currentPlayer.innerText = "congrats it's a tie"
         }
     }
 }
-
+// players turn changes based on who has previously clicked.
 
 function toggleTurn(e) {
     var playerChoice = document.getElementById(e.target.id);
     if (count % 2 == 0) {
-        // console.log('o')
+
         currentPlayer.innerText = "Player O's turn"
         playerChoice.innerHTML = "X";
-        // gameStatus[e.target.id - 1] = "x"
-        // console.log('x')
-        // document.getElementById(Math.floor(Math.random() * 9));
-        // aiMove.innerText = "X"
+
     } else {
         currentPlayer.innerText = "Player X's turn";
         playerChoice.innerHTML = "O";
-        // gameStatus[e.target.id - 1] = "o"
+
     }
     count++
     // who won, is it a win or a tie?
